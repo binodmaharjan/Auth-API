@@ -17,7 +17,7 @@ export const LoginUser = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
     const ip = req.ip as string;
-    const account = await authenticate({ email, password, ipAddress: ip });
+    const account = await authenticate({ email, password });
     normalizeResp({ data: account, responseType: 'get', res });
   } catch (error: any) {
     normalizeErr({ data: error.message, errorType: error.errorType, res });
